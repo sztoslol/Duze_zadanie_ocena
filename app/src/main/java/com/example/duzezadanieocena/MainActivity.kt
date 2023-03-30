@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.Button_nav_marks).setOnClickListener {
             if (logged){
-                startActivity(Intent(this, tabela_ocen::class.java))
+                startActivity(Intent(this, tabela_ocen::class.java).putExtra("userinfo", User_Data))
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
             }else
                 Toast.makeText(this, "Zaloguj się!", Toast.LENGTH_SHORT).show()
@@ -58,13 +58,14 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.Button_nav_user_info).setOnClickListener {
             if (logged){
-                startActivity(Intent(this, Informacje_o_uzytkowniku::class.java))
+                startActivity(Intent(this, Informacje_o_uzytkowniku::class.java).putExtra("userinfo", User_Data))
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
             }else
                 Toast.makeText(this, "Zaloguj się!", Toast.LENGTH_SHORT).show()
 
         }
 
+        // Obsługa przycisku logowania
         findViewById<Button>(R.id.Button_login).setOnClickListener {
             val nick = findViewById<EditText>(R.id.Input_nick).text.toString()
             val imie = findViewById<EditText>(R.id.Input_imie).text.toString()
@@ -81,9 +82,15 @@ class MainActivity : AppCompatActivity() {
 
                 findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
                 findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
+                RefreshUserUIElements(User_Data)
             }else{
                 Toast.makeText(this, "Wypełnij wszystkie pola!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun RefreshUserUIElements(User_Data: Array<String>):Unit{
+        findViewById<TextView>(R.id.TextView_nav_username).text = User_Data[0]
+        findViewById<TextView>(R.id.Textview_Toolbar_text).text = "${User_Data[1]} ${User_Data[2]}"
     }
 }
