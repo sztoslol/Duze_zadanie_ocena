@@ -22,6 +22,12 @@ class Informacje_o_uzytkowniku : AppCompatActivity() {
         findViewById<TextView>(R.id.Textview_Toolbar_text).text = "${User_Data?.get(1)} ${User_Data?.get(2)}"
         findViewById<TextView>(R.id.TextView_nav_username).text = User_Data?.get(0)
 
+        // Wypełnienie pól informacji o uzytkowniku
+        findViewById<TextView>(R.id.Textview_userinfo_nick).text = User_Data?.get(0)
+        findViewById<TextView>(R.id.Textview_userinfo_imie).text = User_Data?.get(1)
+        findViewById<TextView>(R.id.Textview_userinfo_nazwisko).text = User_Data?.get(2)
+        findViewById<TextView>(R.id.Textview_userinfo_klasa).text = User_Data?.get(3)
+
         supportActionBar?.hide() // ukrycie defaultowego topbara
 
         // Obsługa chowania się manu nawigacji oraz jego animowanie
