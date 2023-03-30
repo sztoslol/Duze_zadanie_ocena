@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_vertical"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:gravity="center_vertical"
@@ -28,8 +28,23 @@
             android:id="@+id/button_hamburger_menu"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:src="@drawable/baseline_menu_black_48" />
-    </LinearLayout>
+            android:src="@drawable/baseline_menu_black_48"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/Textview_przykładowa_nazwa_uzytkownika"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -128,6 +143,15 @@
 
 
     </com.google.android.material.navigation.NavigationView>
+
+    <TextView
+        android:id="@+id/Textview_form_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/Textview_tekst_login"
+        android:gravity="center_horizontal|center_vertical"
+        android:visibility="gone"
+        android:textSize="24sp"/>
 
     <LinearLayout
         android:id="@+id/Login_Form"

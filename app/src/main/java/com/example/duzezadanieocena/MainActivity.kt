@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
@@ -17,13 +18,11 @@ import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() {
-
-    private var isNavOpen = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var logged = false
         val User_Data = arrayOf("", "", "", "") // tablica danych uzytkownika
 
         supportActionBar?.hide() // ukrycie defaultowego topbara
@@ -50,19 +49,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.Button_nav_marks).setOnClickListener {
-            startActivity(Intent(this, tabela_ocen::class.java))
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
+            if (logged){
+                startActivity(Intent(this, tabela_ocen::class.java))
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
+            }else
+                Toast.makeText(this, "Zaloguj się!", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<Button>(R.id.Button_nav_user_info).setOnClickListener {
-            startActivity(Intent(this, Informacje_o_uzytkowniku::class.java))
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
+            if (logged){
+                startActivity(Intent(this, Informacje_o_uzytkowniku::class.java))
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
+            }else
+                Toast.makeText(this, "Zaloguj się!", Toast.LENGTH_SHORT).show()
+
         }
 
         findViewById<Button>(R.id.Button_login).setOnClickListener {
             val nick = findViewById<EditText>(R.id.Input_nick).text.toString()
             val imie = findViewById<EditText>(R.id.Input_imie).text.toString()
-            val nazwisko = findViewById<Button>(R.id.Input_nazwisko).text.toString()
+            val nazwisko = findViewById<EditText>(R.id.Input_nazwisko).text.toString()
             val klasa = findViewById<EditText>(R.id.Input_klasa).text.toString()
 
             if (nick != "" && imie != "" && nazwisko != "" && klasa != ""){
@@ -71,7 +77,10 @@ class MainActivity : AppCompatActivity() {
                 User_Data[2] = nazwisko
                 User_Data[3] = klasa
 
+                logged = true
+
                 findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
+                findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
             }else{
                 Toast.makeText(this, "Wypełnij wszystkie pola!", Toast.LENGTH_SHORT).show()
             }
