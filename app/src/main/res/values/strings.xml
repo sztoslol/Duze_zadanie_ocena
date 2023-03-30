@@ -11,4 +11,9 @@
 
     <string name="Textview_przykładowa_nazwa_uzytkownika">John Doe</string>
     <string name="Textview_tekst_powitalny">Witaj,</string>
+    
+    <string name="Textview_imie">Imię</string>
+    <string name="Textview_nazwisko">Nazwisko</string>
+    <string name="Textview_nick">Nick</string>
+    <string name="Textview_klasa">Klasa</string>
 </resources>
