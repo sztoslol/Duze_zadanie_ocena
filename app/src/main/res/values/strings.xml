@@ -1,6 +1,14 @@
-<resources>
-    <string name="app_name"></string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">App</string>
     <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
     <string name="action_exit">Exit</string>
+
+    <string name="Przycisk_strona_glowna">Strona Główna</string>
+    <string name="Przycisk_oceny">Oceny</string>
+    <string name="Przycisk_informacje">Informacje</string>
+    <string name="Przycisk_zamknij">Zamknij</string>
+
+    <string name="Textview_przykładowa_nazwa_uzytkownika">John Doe</string>
+    <string name="Textview_tekst_powitalny">Witaj,</string>
 </resources>
