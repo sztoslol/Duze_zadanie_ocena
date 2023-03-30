@@ -58,7 +58,7 @@ class Informacje_o_uzytkowniku : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.Button_nav_user_info).setOnClickListener {
-            Toast.makeText(this, "Jesteś już na stronie z informacjami o użytkowniku", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Jesteś już na stronie z informacjami o użytkowniku!", Toast.LENGTH_SHORT).show()
         }
     }
 }
