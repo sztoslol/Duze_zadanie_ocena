@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         if (data != null) {
             User_Data = data
             RefreshUserUIElements(User_Data)
+            logged = true
             findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
             findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
         }
