@@ -26,9 +26,9 @@
 
         <ImageView
             android:id="@+id/button_hamburger_menu"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/baseline_menu_black_48"
+            android:src="@drawable/hamburger_menu_icon"
             android:layout_centerVertical="true"/>
 
         <TextView
@@ -43,7 +43,8 @@
             android:layout_marginBottom="20dp"
             android:text="@string/Textview_przykładowa_nazwa_uzytkownika"
             android:fontFamily="sans-serif"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 
