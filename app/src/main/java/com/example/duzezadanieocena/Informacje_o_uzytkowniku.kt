@@ -48,12 +48,12 @@ class Informacje_o_uzytkowniku : AppCompatActivity() {
 
         // Obsługa przejść pomiędzy activity
         findViewById<Button>(R.id.Button_nav_homepage).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java).putExtra("userinfo", User_Data))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
         }
 
         findViewById<Button>(R.id.Button_nav_marks).setOnClickListener {
-            startActivity(Intent(this, tabela_ocen::class.java))
+            startActivity(Intent(this, tabela_ocen::class.java).putExtra("userinfo", User_Data))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
         }
 

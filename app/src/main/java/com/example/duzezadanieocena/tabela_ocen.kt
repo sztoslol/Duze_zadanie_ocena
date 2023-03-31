@@ -41,7 +41,7 @@ class tabela_ocen : AppCompatActivity() {
 
         // Obsługa przejść pomiędzy activity
         findViewById<Button>(R.id.Button_nav_homepage).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java).putExtra("userinfo", User_Data))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
         }
 
@@ -50,7 +50,7 @@ class tabela_ocen : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.Button_nav_user_info).setOnClickListener {
-            startActivity(Intent(this, Informacje_o_uzytkowniku::class.java))
+            startActivity(Intent(this, Informacje_o_uzytkowniku::class.java).putExtra("userinfo", User_Data))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_left)
         }
     }

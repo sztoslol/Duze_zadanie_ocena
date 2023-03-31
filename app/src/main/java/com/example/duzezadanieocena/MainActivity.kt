@@ -23,7 +23,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var logged = false
-        val User_Data = arrayOf("", "", "", "") // tablica danych uzytkownika
+        var User_Data = arrayOf("", "", "", "") // tablica danych uzytkownika
+
+        val data = intent.getStringArrayExtra("userinfo")
+        if (data != null) {
+            User_Data = data
+            RefreshUserUIElements(User_Data)
+            findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
+            findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
+        }
 
         supportActionBar?.hide() // ukrycie defaultowego topbara
 
