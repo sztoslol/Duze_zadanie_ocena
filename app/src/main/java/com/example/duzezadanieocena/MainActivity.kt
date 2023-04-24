@@ -82,16 +82,19 @@ class MainActivity : AppCompatActivity() {
             val klasa = findViewById<EditText>(R.id.Input_klasa).text.toString()
 
             if (nick != "" && imie != "" && nazwisko != "" && klasa != ""){
-                User_Data[0] = nick
-                User_Data[1] = imie
-                User_Data[2] = nazwisko
-                User_Data[3] = klasa
+                if (imie == "Jakub" && nazwisko == "Drzewiecki")
+                {
+                    User_Data[0] = nick
+                    User_Data[1] = imie
+                    User_Data[2] = nazwisko
+                    User_Data[3] = klasa
 
-                logged = true
+                    logged = true
 
-                findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
-                findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
-                RefreshUserUIElements(User_Data)
+                    findViewById<LinearLayout>(R.id.Login_Form).visibility = View.GONE
+                    findViewById<TextView>(R.id.Textview_form_text).visibility = View.VISIBLE
+                    RefreshUserUIElements(User_Data)
+                }
             }else{
                 Toast.makeText(this, "Wypełnij wszystkie pola!", Toast.LENGTH_SHORT).show()
             }
